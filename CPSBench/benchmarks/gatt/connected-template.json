@@ -1,0 +1,68 @@
+{
+    "description": "connected-template",
+    "dongles": [
+        {
+            "gap_role": "peripheral",
+            "gatt_role": "server",
+            "replicas": 1,
+            "steps": [
+                {
+                    "adv_channels": "0x07",
+                    "short_name": "BLEva",
+                    "long_name": "",
+                    "adv_interval_max": "0x200",
+                    "adv_interval_min": "0x200",
+                    "ble_operation": "advertising",
+                    "gap_connectable_mode": "gap_undirected_connectable",
+                    "gap_discoverable_mode": "gap_user_data",
+                    "connection_interval_min": 640,
+                    "connection_interval_max": 1280,
+                    "slave_latency": 0,
+                    "supervision_timeout": 3600,
+                    "major": "0x0001",
+                    "minor": "0x0001",
+                    "time": 300000
+                }
+            ]
+        }
+    ],
+    "name": "connected-template",
+    "phone": {
+        "gap_role": "central",
+        "gatt_role": "client",
+        "replicas": 1,
+        "steps": [
+            {
+                "ble_operation": "scanning",
+                "callback_type": "all_matches",
+                "match_mode": "aggressive",
+                "match_num": "max_advertisement",
+                "scan_mode": "balanced",
+                "time": 10000,
+                "report_delay": 0,
+                "wifi_state" : "on",
+                "filters" : ["BLEva00"]
+            },
+            {
+                 "ble_operation": "connecting",
+                 "filters": ["BLEva00"]
+            },
+            {
+                 "ble_operation": "service_discovery",
+                 "filters": []
+            },
+            {
+                 "ble_operation": "read_characteristic",
+                 "filters": ["0000ff01-0000-1000-8000-00805f9b34fb"],
+                 "repetitions": 1
+            },
+            {
+                 "ble_operation": "write_characteristic",
+                 "filters": ["0000ff02-0000-1000-8000-00805f9b34fb"],
+                 "repetitions": 1
+            }
+        ]
+    },
+    "time": 240000,
+    "repetitions": 20
+}

@@ -1,0 +1,48 @@
+{
+  "name": "scanning-30s-balanced-wifion-0x100-1dongle",
+  "description": "scanning-30s-balanced-wifion-0x100-1dongle",
+  "time": 30000,
+  "repetitions": 20,
+  "phone": {
+   "gap_role": "observer",
+   "gatt_role": "client",
+   "steps": [
+    {
+     "time": 30000,
+     "ble_operation": "scanning",
+     "callback_type": "all_matches",
+     "match_mode": "aggressive",
+     "match_num": "max_advertisement",
+     "scan_mode": "balanced",
+     "report_delay": 0,
+     "wifi_state": "on",
+     "filters": []
+    }
+   ],
+   "replicas": 1
+  },
+  "dongles": [
+   {
+    "gap_role": "broadcaster",
+    "gatt_role": "server",
+    "replicas": 1,
+    "steps": [
+     {
+      "time": 30000,
+      "ble_operation": "advertising",
+      "adv_data": "",
+      "short_name": "BLEva",
+      "sr_data": "",
+      "long_name": "",
+      "major": "0x0001",
+      "minor": "0x0001",
+      "adv_interval_min": "0x100",
+      "adv_interval_max": "0x100",
+      "adv_channels": "0x07",
+      "gap_discoverable_mode": "gap_user_data",
+      "gap_connectable_mode": "gap_scannable_non_connectable"
+     }
+    ]
+   }
+  ]
+}
