@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <!-- 1800: org.bluetooth.service.generic_access -->
+    <service uuid="1800" id="generic_access">
+        <description>Generic Access</description>
+
+        <!-- 2A00: org.bluetooth.characteristic.gap.device_name -->
+        <characteristic uuid="2A00" id="c_device_name">
+            <description>Device Name</description>
+            <properties read="true" const="true" />
+            <value>BLEva</value>
+        </characteristic>
+
+        <!-- 2A01: org.bluetooth.characteristic.gap.appearance -->
+        <characteristic uuid="2A01" id="c_appearance">
+            <description>Appearance</description>
+            <properties read="true" const="true" />
+            <!-- 128: Generic Computer, Generic category -->
+            <value type="hex">0080</value>
+        </characteristic>
+
+    </service>
+
+    <!-- 180A: org.bluetooth.service.device_information -->
+    <service uuid="180A" id="device_information">
+        <description>Device Information</description>
+
+        <!-- 2A29: org.bluetooth.characteristic.manufacturer_name_string -->
+        <!-- (support for this characteristic is MANDATORY according to the profile spec) -->
+        <characteristic uuid="2A29" id="c_manufacturer_name">
+            <description>Manufacturer Name</description>
+            <properties read="true" const="true" />
+            <value>BLUEGIGA</value>
+        </characteristic>
+
+        <!-- 2A24: org.bluetooth.characteristic.model_number_string -->
+        <characteristic uuid="2A24" id="c_model_number">
+            <description>Model Number</description>
+            <properties read="true" const="true" />
+            <value>BLED112</value>
+        </characteristic>
+
+    </service>
+
+    <!-- custom service for BLEoTGW -->
+    <service uuid="0000ffa1-0000-1000-8000-00805f9b34fb" id="bleva_service">
+      <description>BLEva Service</description>
+
+        <!-- Read User Characteristic-->
+        <characteristic uuid="0000ff01-0000-1000-8000-00805f9b34fb" id="c_tx">
+            <description>read_user</description>
+            <properties write="false" read="true" notify="false" indicate="false"/>
+            <value variable_length="false" length="20" type="user"></value>
+          </characteristic>
+
+        <!-- Write User Characteristic-->
+        <characteristic uuid="0000ff02-0000-1000-8000-00805f9b34fb" id="c_rx">
+            <description>write_user</description>
+            <properties write="true" read="false" notify="false" indicate="false"/>
+            <value variable_length="true" length="20" type="user"></value>
+        </characteristic>
+
+        <!-- Write Characteristic-->
+        <characteristic uuid="0000ff03-0000-1000-8000-00805f9b34fb" id="c_rx">
+            <description>write</description>
+            <properties write="true" read="false" notify="false" indicate="false"/>
+            <value variable_length="true" length="20"></value>
+        </characteristic>
+
+        <!-- Read Characteristic-->
+        <characteristic uuid="0000ff04-0000-1000-8000-00805f9b34fb" id="c_rx">
+            <description>read</description>
+            <properties write="false" read="true" notify="false" indicate="false"/>
+            <value variable_length="true" length="20"></value>
+        </characteristic>
+
+        <!-- Notify Characteristic-->
+        <characteristic uuid="0000ff05-0000-1000-8000-00805f9b34fb" id="c_rx">
+            <description>notify</description>
+            <properties write="false" read="true" notify="true" indicate="false"/>
+            <value variable_length="true" length="20"></value>
+        </characteristic>
+    </service>
+</configuration>
