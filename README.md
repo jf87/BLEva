@@ -2,6 +2,11 @@
 
 BLEva is a benchmarking framework for Bluetooth Low Energy applications.
 
+## Requirements
+
+- Android phone with Bluetooth support >= 4.0
+- [BLED112 dongle](https://www.silabs.com/products/wireless/bluetooth/bluetooth-low-energy-modules/bled112-bluetooth-smart-dongle).
+
 ## Folder Structure
 
 - `./src/bleva-android`: Android application code.
