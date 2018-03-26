@@ -1,0 +1,3 @@
+[submodule "src/bleva-android/volley"]
+	path = src/bleva-android/volley
+	url = https://android.googlesource.com/platform/frameworks/volley

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">bleva</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_country">CountryActivity</string>
+    <string name="title_activity_main2">BLEva</string>
+    <string name="title_activity_benchmark">Benchmark</string>
+</resources>

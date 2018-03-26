@@ -14,8 +14,9 @@
 
 bleva-ios
 benchmark-results
-bleva-android/build
+src/bleva-android/build
 BlueMorpho*
 Bluetooth
 TODO.md
 Tests
+bleva-server
