@@ -1,3 +1,4 @@
+#! /usr/bin/env python2
 from __future__ import division
 import sys
 import os
@@ -14,8 +15,8 @@ def plot_hl_write(path):
     scan_modes = ["balanced"]
     frames = []
     for mode in scan_modes:
-        frame = util.process_folder(path, filter_scan_mode=mode,
-                                    filter_benchmark="gatt")
+        frame = util.process_folder(
+            path, filter_scan_mode=mode, filter_benchmark="gatt")
         frames.append(frame)
     all_frames = pd.concat(frames)
     # util.print_full(all_frames.groupby(['Operation', 'Connection Interval
@@ -33,8 +34,8 @@ def plot_hl_write(path):
     sums = means.groupby(["Phone Model"], as_index=False).sum()
     print sums
     fig, ax1 = plt.subplots()
-    wifion_20ms_write = all_frames[(all_frames['Operation'] == 'Write Sum') &
-                                   (all_frames['Connection Interval (s)'] == 0.02) &
+    wifion_20ms_write = all_frames[(all_frames['Operation'] == 'Write Sum') & (
+        all_frames['Connection Interval (s)'] == 0.02) &
                                    (all_frames['WiFi State'] == 'on')]
     print wifion_20ms_write
 

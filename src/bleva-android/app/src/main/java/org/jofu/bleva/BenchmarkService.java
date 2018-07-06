@@ -270,7 +270,7 @@ public class BenchmarkService extends Service {
                         }
                     }
                     if (!POWER_MEASUREMENT) {
-                        // FIXME this is not goof for multiple phones
+                        // FIXME this is not good for multiple phones
                         Log.d(TAG, "waiting for sucessful post");
                         boolean post = postBenchmark(b);
 //                        while (!post) {

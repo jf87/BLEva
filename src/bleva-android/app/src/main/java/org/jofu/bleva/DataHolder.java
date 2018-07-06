@@ -7,7 +7,7 @@ import java.util.Deque;
 
 public class DataHolder {
     private  ArrayList<Benchmark> benchmarks = new ArrayList<Benchmark>();
-    public String BLEVA_SERVER = "http://10.6.6.121:8888";
+    public String BLEVA_SERVER = "http://192.168.1.139:8888";
     private final static String TAG = "DataHolder";
     public final static int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private Deque<Benchmark> benchmarkQueue;
